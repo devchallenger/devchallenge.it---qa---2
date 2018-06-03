@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "b2c7fde3-24c5-413a-a00c-70684340f057",
+		"name": "0. Requests limits",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0. Requests limits <60",
+			"description": "",
+			"item": [
+				{
+					"name": "0.01No more 60 calls for free",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ddfbd766-1cc3-4ebd-879e-9cc0461fca62",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"tests[\"Body contains city\"] = responseBody.has(data.name);",
+									"tests[\"Body contains country\"] = responseBody.has(data.country);",
+									"tests[\"Body contains id\"] = responseBody.has(data.id);",
+									"",
+									"pm.test(\"Weater data\", function () {",
+									"    var wth = pm.response.json();",
+									"    pm.expect(wth).to.contain.all.keys(\"coord\", \"weather\", \"id\", \"name\");",
+									"});",
+									"",
+									"pm.test(\"Current weather\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"weather\");",
+									"});",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5254af16-3756-46c7-a2d1-fd6ad65e2a82",
+								"type": "text/javascript",
+								"exec": [
+									"console.log(\"id\" + data.id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "api.openweathermap.org/data/2.5/weather?id={{id}}&mode=json&lang=ua&appid={{appid}}",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								},
+								{
+									"key": "mode",
+									"value": "json"
+								},
+								{
+									"key": "lang",
+									"value": "ua"
+								},
+								{
+									"key": "appid",
+									"value": "{{appid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": ".0. Request limits >60",
+			"description": "",
+			"item": [
+				{
+					"name": "0.02 More than 60 calls for free",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cebd7ebb-176f-4967-907f-6f650ed143bc",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 429\", function () {",
+									"    pm.response.to.have.status(429);",
+									"});",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5254af16-3756-46c7-a2d1-fd6ad65e2a82",
+								"type": "text/javascript",
+								"exec": [
+									"console.log(\"id\" + data.id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "api.openweathermap.org/data/2.5/weather?id={{id}}&mode=json&lang=ua&appid={{appid}}",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								},
+								{
+									"key": "mode",
+									"value": "json"
+								},
+								{
+									"key": "lang",
+									"value": "ua"
+								},
+								{
+									"key": "appid",
+									"value": "{{appid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
