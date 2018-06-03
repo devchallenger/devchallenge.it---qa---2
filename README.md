@@ -11,4 +11,4 @@ Repository includes:
 
 To run the tests your should set up Postman(https://www.getpostman.com/apps) After Postman run import JSON files(OpenWeatherMapFull.postman_collection.json, 0.Requests limits.postman_collection.json and openweathermap1.postman_environment.json) to it(Import as a file) Click on Runner and select a folder with the test scenarios you want to run:
 - 0.Request limits. 2 tests should be run separatelly. To run "0.01No more 60 calls for free" in Runner you should select 60 City.json from tested files, select file type "application/json", select openweathermap1 environment and run the tests from this folder. Then you should repeat all activities with another test file 61 City.json to check limit of requests
-To run another tests you should select Variables.json from tested files, select file type "application/json", select openweathermap1 environment and run the tests from this folder
+- To run another tests you should select Variables.json from tested files, select file type "application/json", select openweathermap1 environment and run the tests from this folder
