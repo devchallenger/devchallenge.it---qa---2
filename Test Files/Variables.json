@@ -1,0 +1,46 @@
+[
+{
+    "layer": "clouds_new",
+	"pol": "co",
+	"id": 1641978,
+    "name": "Kaliandak",
+    "country": "ID",
+    "lon1": 105.591599,
+    "lat1": -5.73805
+},
+{
+    "layer": "cprecipitation_new",
+	"pol": "o3",
+	"id": 2623621,
+    "name": "Borup",
+    "country": "DK",
+    "lon1": 9.50689,
+    "lat1": 56.922081
+},
+{
+    "layer": "pressure_new",
+	"pol": "so2",
+	"id": 2750888,
+    "name": "Middeldijk",
+    "country": "NL",
+    "lon1": 4.51667,
+    "lat1": 51.849998
+},
+{
+    "layer": "wind_new",
+	"pol": "no2",
+	"id": 2610888,
+    "name": "Understed",
+    "country": "DK",
+    "lon1": 10.51667,
+    "lat1": 57.383331
+},
+{
+    "layer": "temp_new",
+	"id": 1642125,
+    "name": "Kairatu",
+    "country": "ID",
+    "lon1": 128.362762,
+    "lat1": -3.35337   
+}
+]
